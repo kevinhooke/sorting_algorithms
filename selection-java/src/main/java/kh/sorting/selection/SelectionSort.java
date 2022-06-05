@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Selection Sort implementations:
+ * Selection Sort algorithm: sorts a list by finding the next smallest value in the list
+ * and swapping the value in the current start position in the list with the smallest value.
+ * Repeats this approach starting at the next list index and continues until end of the list
+ * is reached.
+ *
+ * Two implementation approaches:
  * 
  * - selectionSort() - using a new list for sorted values
  * - selectionSortInPlace() - in place sort swapping values as they are sorted
