@@ -31,20 +31,44 @@ public class SelectionSort {
 	}
 	
 	public List<Integer> selectionSortInPlace(List<Integer> inputList){
-		List<Integer> sorted = new ArrayList<>();
-		sorted.addAll(inputList);
 		
-		//TODO
+		for(int currentIndex = 0; currentIndex < inputList.size(); currentIndex++){
+			int currentSmallest = this.findSmallestInList(inputList, currentIndex); 
+			//this.findIndexOfSmallestInList(inputList, currentIndex);
+			int indexOfFirstSmallest = inputList.indexOf(currentSmallest);
+			
+			//swap current position in list with the next smallest
+			Integer valueToSwap = inputList.get(currentIndex);
+			inputList.set(currentIndex, Integer.valueOf(currentSmallest));
+			inputList.set(indexOfFirstSmallest, valueToSwap);
+		}
 		
-		return sorted;
+		return inputList;
 	}
-	
+
+	/**
+	 * Finds smallest value in a list starting at index 0
+	 * 
+	 * @param list
+	 * @return
+	 */
 	Integer findSmallestInList(List<Integer> list) {
+		return this.findSmallestInList(list, 0);
+	}
+
+	
+	/**
+	 * Finds smallest value in a list
+	 * 
+	 * @param list
+	 * @return
+	 */
+	Integer findSmallestInList(List<Integer> list, int startingIndex) {
 		Integer smallest = null;
 		
-		for(int currentIndex = 0; currentIndex < list.size(); currentIndex++) {
-			if(currentIndex == 0) {
-				smallest = list.get(0);
+		for(int currentIndex = startingIndex; currentIndex < list.size(); currentIndex++) {
+			if(currentIndex == startingIndex) {
+				smallest = list.get(startingIndex);
 			}
 			else {
 				if(list.get(currentIndex) < smallest) {
@@ -53,8 +77,42 @@ public class SelectionSort {
 			}
 		}
 		
-		return smallest;
-		
+		return smallest;		
 	}
-	
+
+	/**
+	 * Finds index of smallest value in a list starting at index 0
+	 * 
+	 * @param list
+	 * @return
+	 */
+	int findIndexOfSmallestInList(List<Integer> list) {
+		return this.findIndexOfSmallestInList(list, 0);
+	}
+
+	/**
+	 * Finds index of smallest value in a list
+	 * 
+	 * @param list
+	 * @return
+	 */
+	int findIndexOfSmallestInList(List<Integer> list, int startingIndex) {
+		int index = 0;
+		Integer smallest = null;
+		
+		for(int currentIndex = startingIndex; currentIndex < list.size(); currentIndex++) {
+			if(currentIndex == 0) {
+				smallest = list.get(0);
+			}
+			else {
+				if(list.get(currentIndex) < smallest) {
+					smallest = list.get(currentIndex); 
+					index = currentIndex;
+				}
+			}
+		}
+		
+		return index;		
+	}
+
 }
