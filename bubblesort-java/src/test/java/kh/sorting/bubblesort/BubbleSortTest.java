@@ -20,9 +20,26 @@ public class BubbleSortTest {
 	}
 	
 	@Test
-	public void testOddElements() {
+	public void test3OddElements_lastElementIsLargest() {
+		List<Integer> list = Arrays.asList(2, 1, 3);
+		List<Integer> result =  (new BubbleSort()).bubbleSort(list);
+		
+		assertEquals(Integer.valueOf(1), result.get(0));
+		assertEquals(Integer.valueOf(2), result.get(1));
+		assertEquals(Integer.valueOf(3), result.get(2));		
 	}
 
+	@Test
+	public void test3OddElements_lastElementIsSmallest() {
+		List<Integer> list = Arrays.asList(2, 3, 1);
+		List<Integer> result =  (new BubbleSort()).bubbleSort(list);
+		
+		assertEquals(Integer.valueOf(1), result.get(0));
+		assertEquals(Integer.valueOf(2), result.get(1));
+		assertEquals(Integer.valueOf(3), result.get(2));		
+	}
+
+	
 	@Test
 	public void test4Elements() {
 

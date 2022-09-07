@@ -37,10 +37,7 @@ public class BubbleSort {
 						inputList.set(index + 1, temp);
 						sortComplete = false;
 					}
-					
-					//TODO handle odd element at end of list
-				}
-				
+				}				
 			}
 		}
 		
